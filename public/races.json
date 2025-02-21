@@ -6,10 +6,10 @@
     "matureAge": 25,
     "lifespan": 350,
     "size": "Medium",
-    "languages": "Common, Dwarven, Gnomish, Goblin, Jotun, Ocrish, Petran, Sakvroth",
+    "languages": "Common, Dwarven, Additional languages equal to your Intelligence modifier (if it's positive). Choose from Gnomish, Goblin, Jotun, Orcish, Petran, Sakvroth",
     "speed": { "walking": 20 },
     "avgHeight": 60,
-    "darkvision": "Darkvision",
+    "darkvision": "Darkvision, ",
     "appearance": {
       "skinType": "Skin",
       "skinColourType": "basic",
@@ -24,6 +24,10 @@
         "description": "https://2e.aonprd.com/Ancestries.aspx?ID=59"
       },
       {
+        "name": "tl;dr",
+        "description": "Dwarves are a short, stocky people who are often stubborn, fierce, and devoted."
+      },
+      {
         "name": "Attribute Boosts",
         "description": "Constitution, Wisdom, Free"
       },
@@ -35,6 +39,8 @@
         "name": "Clan Dagger",
         "description": "You get one clan dagger for free, as it was given to you at birth. Selling this clan dagger is a terrible taboo and earns you the disdain of other dwarves."
       }
+    ],
+    "proficiencies": [
     ]
   },
   {
@@ -44,22 +50,26 @@
     "matureAge": 20,
     "lifespan": 600,
     "size": "Medium",
-    "languages": "Common, Elven, Draconic, Empyrean, Fey, Gnomish, Goblin, Kholo, Orcish",
+    "languages": "Common, Elven, Additional languages equal to your Intelligence modifier (if it's positive). Choose from Draconic, Empyrean, Fey, Gnomish, Goblin, Kholo, Orcish",
     "speed": { "walking": 30 },
     "avgHeight": 78,
-    "darkvision": "Low-Light Vision",
+    "darkvision": "Low-Light Vision, ",
     "appearance": {
       "skinType": "Skin",
       "skinColourType": "basic",
       "hairType": "basic",
       "eyeColourType": "basic",
-      "facialHairType": "all",
+      "facialHairType": "none",
       "facialHairChance": 0.8
     },
     "traits": [
       {
         "name": "2e.aonprd link",
         "description": "https://2e.aonprd.com/Ancestries.aspx?ID=60"
+      },
+      {
+        "name": "tl;dr",
+        "description": "Elves are a tall, long-lived people with a strong tradition of art and magic."
       },
       {
         "name": "Attribute Boosts",
@@ -69,6 +79,268 @@
         "name": "Attribute Flaw",
         "description": "Constitution"
       }
+    ],
+    "proficiencies": [
+    ]
+  },
+  {
+    "index": 2,
+    "defaultCheckbox": true,
+    "name": "Gnome",
+    "matureAge": 18,
+    "lifespan": 400,
+    "size": "Small",
+    "languages": "Common, Fey, Gnomish, Additional languages equal to your Intelligence modifier (if it's positive). Choose from Draconic, Dwarven, Elven, Goblin, Jotun, Orcish",
+    "speed": { "walking": 25 },
+    "avgHeight": 36,
+    "darkvision": "Low-Light Vision, ",
+    "appearance": {
+      "skinType": "Skin",
+      "skinColourType": "basic",
+      "hairType": "basic",
+      "eyeColourType": "basic",
+      "facialHairType": "men",
+      "facialHairChance": 0.5
+    },
+    "traits": [
+      {
+        "name": "2e.aonprd link",
+        "description": "https://2e.aonprd.com/Ancestries.aspx?ID=61"
+      },
+      {
+        "name": "tl;dr",
+        "description": "Gnomes are short and hardy folk, with an unquenchable curiosity and eccentric habits."
+      },
+      {
+        "name": "Attribute Boosts",
+        "description": "Constitution, Charisma, Free"
+      },
+      {
+        "name": "Attribute Flaw",
+        "description": "Strength"
+      }
+    ],
+    "proficiencies": [
+    ]
+  },
+  {
+    "index": 3,
+    "defaultCheckbox": true,
+    "name": "Goblin",
+    "matureAge": 4,
+    "lifespan": 50,
+    "size": "Small",
+    "languages": "Common, Goblin, Gnomish, Additional languages equal to your Intelligence modifier (if it's positive). Choose from Draconic, Dwarven, Gnomish, Halfling, Kholo, Orcish",
+    "speed": { "walking": 25 },
+    "avgHeight": 36,
+    "darkvision": "Darkvision, ",
+    "appearance": {
+      "skinType": "Skin",
+      "skinColourType": "basic",
+      "hairType": "basic",
+      "eyeColourType": "basic",
+      "facialHairType": "men",
+      "facialHairChance": 0.5
+    },
+    "traits": [
+      {
+        "name": "2e.aonprd link",
+        "description": "https://2e.aonprd.com/Ancestries.aspx?ID=62"
+      },
+      {
+        "name": "tl;dr",
+        "description": "Goblins are a short, scrappy, energetic people who have spent millennia maligned and feared."
+      },
+      {
+        "name": "Attribute Boosts",
+        "description": "Dexterity, Charisma, Free"
+      },
+      {
+        "name": "Attribute Flaw",
+        "description": "Wisdom"
+      }
+    ],
+    "proficiencies": [
+    ]
+  },
+  {
+    "index": 4,
+    "defaultCheckbox": true,
+    "name": "Halfling",
+    "matureAge": 20,
+    "lifespan": 150,
+    "size": "Small",
+    "languages": "Common, Halfling, Additional languages equal to your Intelligence modifier (if it's positive). Choose from Dwarven, Elven, Gnomish, Goblin",
+    "speed": { "walking": 25 },
+    "avgHeight": 36,
+    "darkvision": "Keen Eyes, ",
+    "appearance": {
+      "skinType": "Skin",
+      "skinColourType": "basic",
+      "hairType": "basic",
+      "eyeColourType": "basic",
+      "facialHairType": "men",
+      "facialHairChance": 0.25
+    },
+    "traits": [
+      {
+        "name": "2e.aonprd link",
+        "description": "https://2e.aonprd.com/Ancestries.aspx?ID=63"
+      },
+      {
+        "name": "tl;dr",
+        "description": "Halflings are a short, resilient people who exhibit remarkable curiosity and humor."
+      },
+      {
+        "name": "Attribute Boosts",
+        "description": "Dexterity, Wisdom, Free"
+      },
+      {
+        "name": "Attribute Flaw",
+        "description": "Strength"
+      },
+      {
+        "name": "Keen Eyes",
+        "description": "Your eyes are sharp, allowing you to make out small details about concealed or even invisible creatures that others might miss. You gain a +2 circumstance bonus when using the Seek action to find hidden or undetected creatures within 30 feet of you. When you target an opponent that is concealed from you or hidden from you, reduce the DC of the flat check to 3 for a concealed target or 9 for a hidden one."
+      }
+    ],
+    "proficiencies": [
+    ]
+  },
+  {
+    "index": 5,
+    "defaultCheckbox": true,
+    "name": "Human",
+    "matureAge": 15,
+    "lifespan": 90,
+    "size": "Medium",
+    "languages": "Common, Additional languages equal to 1 + your Intelligence modifier (if it's positive). Choose from the list of common languages.",
+    "speed": { "walking": 25 },
+    "avgHeight": 72,
+    "darkvision": "",
+    "appearance": {
+      "skinType": "Skin",
+      "skinColourType": "basic",
+      "hairType": "basic",
+      "eyeColourType": "basic",
+      "facialHairType": "men",
+      "facialHairChance": 0.5
+    },
+    "traits": [
+      {
+        "name": "2e.aonprd link",
+        "description": "https://2e.aonprd.com/Ancestries.aspx?ID=64"
+      },
+      {
+        "name": "tl;dr",
+        "description": "Humans are diverse and adaptable people with wide potential and deep ambitions.."
+      },
+      {
+        "name": "Attribute Boosts",
+        "description": "2 Free"
+      },
+      {
+        "name": "Attribute Flaw",
+        "description": "None"
+      }
+    ],
+    "proficiencies": [
+    ]
+  },
+  {
+    "index": 6,
+    "defaultCheckbox": true,
+    "name": "Leshy",
+    "matureAge": 0,
+    "lifespan": 0,
+    "size": "Small",
+    "languages": "Common, Fey, ",
+    "speed": { "walking": 25 },
+    "avgHeight": 36,
+    "darkvision": "Low-Light Vision, Additional languages equal to your Intelligence modifier (if it's positive). Choose from Draconic, Elven, Gnomish, Goblin, Halfling, Sakvroth.",
+    "appearance": {
+      "skinType": "plant",
+      "skinColourType": "special",
+      "skinColour": [
+        "spines cover the body (cactus leshy).",
+        "a body that continually produces small fruits imbued with primal magic (fruit leshy).",
+        "body that is made from fungi that grows in the shade of caves and trees and they are at home in dark caverns and warrens (fungus leshy).",
+        "a large gourd for a skull (gourd).",
+        "a body that is made from foliage and leaves. They always fall gracefully (leaf leshy).",
+        "a body accented by lotus flower leaves. They effortlessly float on the surface of water (lotus leshy)",
+        "a thick sticky sap from bark-like flesh making climbing easier (pine leshy).",
+        "a body that is made from hard roots that firmly attach to the ground (root aka. groot).",
+        "a body that is made from woven seaweed and they are comfortable underwater (seaweed leshy).",
+        "a body that is made of woven vines and their climbing ability is unmatched (vine leshy)."
+      ],
+      "hairType": "None",
+      "eyeColourType": "basic",
+      "facialHairType": "any",
+      "facialHairChance": 0.5
+    },
+    "traits": [
+      {
+        "name": "2e.aonprd link",
+        "description": "https://2e.aonprd.com/Ancestries.aspx?ID=65"
+      },
+      {
+        "name": "tl;dr",
+        "description": "Leshies are immortal nature spirits placed in small plant bodies, seeking to experience the world."
+      },
+      {
+        "name": "Attribute Boosts",
+        "description": "Constitution, Wisdom, Free"
+      },
+      {
+        "name": "Attribute Flaw",
+        "description": "Intelligence"
+      },
+      {
+        "name": "Plant Nourishment",
+        "description": "You gain nourishment in the same way that the plants or fungi that match your body type normally do, through some combination of photosynthesis, absorbing minerals with your roots, or scavenging decaying matter. You typically do not need to pay for food. If you normally rely on photosynthesis and go without sunlight for 1 week, you begin to starve. You can derive nourishment from specially formulated bottles of sunlight instead of natural sunlight, but these bottles cost 10 times as much as standard rations (or 40 sp)."
+      }
+    ],
+    "proficiencies": [
+    ]
+  },
+  {
+    "index": 7,
+    "defaultCheckbox": true,
+    "name": "Orc",
+    "matureAge": 17,
+    "lifespan": 60,
+    "size": "Medium",
+    "languages": "Common, Orcish, Additional languages equal to your Intelligence modifier (if it's positive). Choose from Goblin, Jotun, Petran, Sakvroth.",
+    "speed": { "walking": 25 },
+    "avgHeight": 84,
+    "darkvision": "Darkvision, ",
+    "appearance": {
+      "skinType": "Skin",
+      "skinColourType": "basic",
+      "hairType": "basic",
+      "eyeColourType": "basic",
+      "facialHairType": "men",
+      "facialHairChance": 0.5
+    },
+    "traits": [
+      {
+        "name": "2e.aonprd link",
+        "description": "https://2e.aonprd.com/Ancestries.aspx?ID=64"
+      },
+      {
+        "name": "tl;dr",
+        "description": "Orcs are proud, strong people with hardened physiques who value physical might and glory in combat."
+      },
+      {
+        "name": "Attribute Boosts",
+        "description": "2 Free"
+      },
+      {
+        "name": "Attribute Flaw",
+        "description": "None"
+      }
+    ],
+    "proficiencies": [
     ]
   }
 ]
