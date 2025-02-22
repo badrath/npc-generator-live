@@ -28,9 +28,9 @@ class AdComponent extends React.Component {
         <ins
           className="adsbygoogle"
           style={{ display: "block" }}
-          data-ad-client="ca-pub-8996586400495676"
-          data-ad-slot="8142577961"
-          data-ad-format="auto"
+          data-ad-client="" //"ca-pub-8996586400495676"
+          data-ad-slot="" //"8142577961"
+          data-ad-format="" //"auto"
           data-full-width-responsive="true"
         />
       </div>

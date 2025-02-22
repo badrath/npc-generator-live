@@ -24,6 +24,10 @@ import {
 } from "react-icons/fa";
 import { computeHeadingLevel } from "@testing-library/react";
 
+function randWithinRange(min, max) {
+  return Math.random() * (max - min) + min;
+}
+
 const Generator = () => {
   const gaEventTracker = useAnalyticsEventTracker("Generator");
   const NULL_GENDER = {
@@ -1001,22 +1005,28 @@ const Generator = () => {
     const statRoof = statAverage + powerVariance;
 
     let generatedSTR = Math.floor(
-      Math.random() * (statRoof - statFloor) + statFloor + 0.5
+      randWithinRange(statFloor, statRoof) + 0.5
+      // Math.random() * (statRoof - statFloor) + statFloor + 0.5
     );
     let generatedDEX = Math.floor(
-      Math.random() * (statRoof - statFloor) + statFloor + 0.5
+      randWithinRange(statFloor, statRoof) + 0.5
+      // Math.random() * (statRoof - statFloor) + statFloor + 0.5
     );
     let generatedCON = Math.floor(
-      Math.random() * (statRoof - statFloor) + statFloor + 0.5
+      randWithinRange(statFloor, statRoof) + 0.5
+      // Math.random() * (statRoof - statFloor) + statFloor + 0.5
     );
     let generatedINT = Math.floor(
-      Math.random() * (statRoof - statFloor) + statFloor + 0.5
+      randWithinRange(statFloor, statRoof) + 0.5
+      // Math.random() * (statRoof - statFloor) + statFloor + 0.5
     );
     let generatedWIS = Math.floor(
-      Math.random() * (statRoof - statFloor) + statFloor + 0.5
+      randWithinRange(statFloor, statRoof) + 0.5
+      // Math.random() * (statRoof - statFloor) + statFloor + 0.5
     );
     let generatedCHA = Math.floor(
-      Math.random() * (statRoof - statFloor) + statFloor + 0.5
+      randWithinRange(statFloor, statRoof) + 0.5
+      // Math.random() * (statRoof - statFloor) + statFloor + 0.5
     );
 
     const generatedBaseStats = {
@@ -1037,6 +1047,24 @@ const Generator = () => {
     generatedINT += generatedJob.statBonuses.INT;
     generatedWIS += generatedJob.statBonuses.WIS;
     generatedCHA += generatedJob.statBonuses.CHA;
+
+    // add race/ancestry bonuses
+    if (generatedRace.hasOwnProperty("statBonuses")){
+
+      if (generatedRace.statBonuses.hasOwnProperty("FreeN")){
+        for (let i = 0; i <= generatedRace.statBonuses.FreeN; i++) {
+          generatedRace.statBonuses[randWithinRange(statFloor, statRoof) + 0.5] += 2
+        }
+      }
+
+      generatedSTR += generatedRace.statBonuses.STR;
+      generatedDEX += generatedRace.statBonuses.DEX;
+      generatedCON += generatedRace.statBonuses.CON;
+      generatedINT += generatedRace.statBonuses.INT;
+      generatedWIS += generatedRace.statBonuses.WIS;
+      generatedCHA += generatedRace.statBonuses.CHA;
+
+    }
 
     // add trait bonuses
     for (let i = 0; i < generatedUniTraits.length; i++) {
@@ -3686,6 +3714,15 @@ const Generator = () => {
                     <td>{baseStats.INT}</td>
                     <td>{baseStats.WIS}</td>
                     <td>{baseStats.CHA}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Race</th>
+                    <td>{generatedRace.statBonuses.STR}</td>
+                    <td>{generatedRace.DEX}</td>
+                    <td>{generatedRace.CON}</td>
+                    <td>{generatedRace.INT}</td>
+                    <td>{generatedRace.WIS}</td>
+                    <td>{generatedRace.CHA}</td>
                   </tr>
                   <tr>
                     <th scope="row">{resultJob.name}</th>

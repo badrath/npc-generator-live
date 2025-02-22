@@ -2,7 +2,7 @@
   {
     "index": 0,
     "defaultCheckbox": true,
-    "name": "Dwarf",
+    "name": "Dwarf - Common",
     "matureAge": 25,
     "lifespan": 350,
     "size": "Medium",
@@ -46,7 +46,7 @@
   {
     "index": 1,
     "defaultCheckbox": true,
-    "name": "Elf",
+    "name": "Elf - Common",
     "matureAge": 20,
     "lifespan": 600,
     "size": "Medium",
@@ -86,7 +86,7 @@
   {
     "index": 2,
     "defaultCheckbox": true,
-    "name": "Gnome",
+    "name": "Gnome - Common",
     "matureAge": 18,
     "lifespan": 400,
     "size": "Small",
@@ -126,7 +126,7 @@
   {
     "index": 3,
     "defaultCheckbox": true,
-    "name": "Goblin",
+    "name": "Goblin - Common",
     "matureAge": 4,
     "lifespan": 50,
     "size": "Small",
@@ -166,7 +166,7 @@
   {
     "index": 4,
     "defaultCheckbox": true,
-    "name": "Halfling",
+    "name": "Halfling - Common",
     "matureAge": 20,
     "lifespan": 150,
     "size": "Small",
@@ -210,7 +210,7 @@
   {
     "index": 5,
     "defaultCheckbox": true,
-    "name": "Human",
+    "name": "Human - Common",
     "matureAge": 15,
     "lifespan": 90,
     "size": "Medium",
@@ -250,7 +250,7 @@
   {
     "index": 6,
     "defaultCheckbox": true,
-    "name": "Leshy",
+    "name": "Leshy - Common",
     "matureAge": 0,
     "lifespan": 0,
     "size": "Small",
@@ -306,7 +306,7 @@
   {
     "index": 7,
     "defaultCheckbox": true,
-    "name": "Orc",
+    "name": "Orc - Common",
     "matureAge": 17,
     "lifespan": 60,
     "size": "Medium",
@@ -342,5 +342,81 @@
     ],
     "proficiencies": [
     ]
+  },
+  {
+    "index": 8,
+    "defaultCheckbox": true,
+    "name": "Kholo (gnoll) - Uncommon",
+    "matureAge": 17,
+    "lifespan": 60,
+    "size": "Medium",
+    "languages": "Common, Orcish, Additional languages equal to your Intelligence modifier (if it's positive). Choose from Goblin, Jotun, Petran, Sakvroth.",
+    "speed": { "walking": 25 },
+    "avgHeight": 78,
+    "darkvision": "Low-Light Vision, ",
+    "appearance": {
+      "skinType": "fur",
+      "skinColourType": "special",
+      "skinColour": [
+        "tan fur with white spots.",
+        "tan fur with white stripes.",
+        "tan fur with off-white spots.",
+        "tan fur with off-white stripes.",
+        "tan fur with brown spots.",
+        "tan fur with brown strips.",
+        "tan fur.",
+        "off-white fur with white spots.",
+        "off-white fur with white stripes.",
+        "off-white fur.",
+        "off-white fur with brown spots.",
+        "off-white fur with brown stripes.",
+        "off-white fur with tan spots.",
+        "off-white fur with tan stripes.",
+        "brown fur with white spots.",
+        "brown fur with white stripes.",
+        "brown fur with off-white spots.",
+        "brown fur with off-white stripes.",
+        "brown fur.",
+        "brown fur with tan spots.",
+        "brown fur with tan stripes"
+      ],
+      "hairType": "basic",
+      "eyeColourType": "basic",
+      "facialHairType": "all",
+      "facialHairChance": 0.5
+    },
+    "traits": [
+      {
+        "name": "2e.aonprd link",
+        "description": "https://2e.aonprd.com/Ancestries.aspx?ID=79"
+      },
+      {
+        "name": "tl;dr",
+        "description": "Kholos are hyena-headed humanoids who embrace practicality and pragmatism."
+      },
+      {
+        "name": "Attribute Boosts",
+        "description": "Strength, Intelligence, Free"
+      },
+      {
+        "name": "Attribute Flaw",
+        "description": "Wisdom"
+      },
+      {
+        "name": "Bite",
+        "description": "Your sharp teeth and powerful jaws are fearsome weapons. You have a jaws unarmed attack that deals 1d6 piercing damage. Your jaws are in the brawling group."
+      }
+    ],
+    "proficiencies": [
+    ],
+    "statBonuses": {
+      "FreeN": 1,
+      "STR": 2,
+      "DEX": 100,
+      "CON": 100,
+      "INT": 100,
+      "WIS": -2,
+      "CHA": 100
+    }
   }
 ]
