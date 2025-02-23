@@ -24,8 +24,17 @@ import {
 } from "react-icons/fa";
 import { computeHeadingLevel } from "@testing-library/react";
 
-function randWithinRange(min, max) {
-  return Math.random() * (max - min) + min;
+/**
+ * Returns a random integer between min (inclusive) and max (inclusive).
+ * The value is no lower than min (or the next integer greater than min
+ * if min isn't an integer) and no greater than max (or the next integer
+ * lower than max if max isn't an integer).
+ * Using Math.round() will give you a non-uniform distribution!
+ */
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 const Generator = () => {
@@ -148,7 +157,7 @@ const Generator = () => {
     },
     showLocks: true,
     showVoiceLinks: true,
-    showStatCalc: false,
+    showStatCalc: false, //must be false due to bug on initial load relating to resultRace.statBonuses.FreePicks (and probably other related fields) not existing at init runtime
     capStats: true,
     importError: "",
   });
@@ -1004,30 +1013,30 @@ const Generator = () => {
     const statFloor = statAverage - powerVariance;
     const statRoof = statAverage + powerVariance;
 
-    let generatedSTR = Math.floor(
-      randWithinRange(statFloor, statRoof) + 0.5
-      // Math.random() * (statRoof - statFloor) + statFloor + 0.5
-    );
-    let generatedDEX = Math.floor(
-      randWithinRange(statFloor, statRoof) + 0.5
-      // Math.random() * (statRoof - statFloor) + statFloor + 0.5
-    );
-    let generatedCON = Math.floor(
-      randWithinRange(statFloor, statRoof) + 0.5
-      // Math.random() * (statRoof - statFloor) + statFloor + 0.5
-    );
-    let generatedINT = Math.floor(
-      randWithinRange(statFloor, statRoof) + 0.5
-      // Math.random() * (statRoof - statFloor) + statFloor + 0.5
-    );
-    let generatedWIS = Math.floor(
-      randWithinRange(statFloor, statRoof) + 0.5
-      // Math.random() * (statRoof - statFloor) + statFloor + 0.5
-    );
-    let generatedCHA = Math.floor(
-      randWithinRange(statFloor, statRoof) + 0.5
-      // Math.random() * (statRoof - statFloor) + statFloor + 0.5
-    );
+    // let generatedSTR = Math.floor(
+    //   Math.random() * (statRoof - statFloor) + statFloor + 0.5
+    // );
+    let generatedSTR = getRandomInt(statFloor, statRoof);
+    // let generatedDEX = Math.floor(
+    //   Math.random() * (statRoof - statFloor) + statFloor + 0.5
+    // );
+    let generatedDEX = getRandomInt(statFloor, statRoof);
+    // let generatedCON = Math.floor(
+    //   Math.random() * (statRoof - statFloor) + statFloor + 0.5
+    // );
+    let generatedCON = getRandomInt(statFloor, statRoof);
+    // let generatedINT = Math.floor(
+    //   Math.random() * (statRoof - statFloor) + statFloor + 0.5
+    // );
+    let generatedINT = getRandomInt(statFloor, statRoof);
+    // let generatedWIS = Math.floor(
+    //   Math.random() * (statRoof - statFloor) + statFloor + 0.5
+    // );
+    let generatedWIS = getRandomInt(statFloor, statRoof);
+    // let generatedCHA = Math.floor(
+    //   Math.random() * (statRoof - statFloor) + statFloor + 0.5
+    // );
+    let generatedCHA = getRandomInt(statFloor, statRoof);
 
     const generatedBaseStats = {
       STR: generatedSTR,
@@ -1049,22 +1058,34 @@ const Generator = () => {
     generatedCHA += generatedJob.statBonuses.CHA;
 
     // add race/ancestry bonuses
-    if (generatedRace.hasOwnProperty("statBonuses")){
-
-      if (generatedRace.statBonuses.hasOwnProperty("FreeN")){
-        for (let i = 0; i <= generatedRace.statBonuses.FreeN; i++) {
-          generatedRace.statBonuses[randWithinRange(statFloor, statRoof) + 0.5] += 2
-        }
-      }
-
-      generatedSTR += generatedRace.statBonuses.STR;
-      generatedDEX += generatedRace.statBonuses.DEX;
-      generatedCON += generatedRace.statBonuses.CON;
-      generatedINT += generatedRace.statBonuses.INT;
-      generatedWIS += generatedRace.statBonuses.WIS;
-      generatedCHA += generatedRace.statBonuses.CHA;
-
+    generatedRace.statBonusesResolved = {
+      "STR": generatedRace.statBonuses.STR,
+      "DEX": generatedRace.statBonuses.DEX,
+      "CON": generatedRace.statBonuses.CON,
+      "INT": generatedRace.statBonuses.INT,
+      "WIS": generatedRace.statBonuses.WIS,
+      "CHA": generatedRace.statBonuses.CHA
     }
+
+    let FreePicks = []
+    if (generatedRace.statBonuses.hasOwnProperty("FreeN")){
+      for (let i = 0; i < generatedRace.statBonuses.FreeN; i++) {
+        let FreePickI = getRandomInt(0, 5)
+        let FreePick = Object.keys(generatedRace.statBonuses)[FreePickI]
+        FreePicks.push("" + FreePick)
+        generatedRace.statBonusesResolved[FreePick] += 2
+      }
+      generatedRace.statBonuses.FreePicks = "(Free picks: " + FreePicks.join(", ") + ")"
+    } else {
+      generatedRace.statBonuses.FreePicks = ""
+    }
+
+    generatedSTR += generatedRace.statBonusesResolved.STR;
+    generatedDEX += generatedRace.statBonusesResolved.DEX;
+    generatedCON += generatedRace.statBonusesResolved.CON;
+    generatedINT += generatedRace.statBonusesResolved.INT;
+    generatedWIS += generatedRace.statBonusesResolved.WIS;
+    generatedCHA += generatedRace.statBonusesResolved.CHA;
 
     // add trait bonuses
     for (let i = 0; i < generatedUniTraits.length; i++) {
@@ -1377,6 +1398,7 @@ const Generator = () => {
       resultRace: generatedRace,
       resultJob: generatedJob,
       resultHook: generatedHook,
+      resultRace: generatedRace,
       resultTraits: {
         universal: generatedUniTraits,
         // positive: generatedPosTraits,
@@ -3716,13 +3738,13 @@ const Generator = () => {
                     <td>{baseStats.CHA}</td>
                   </tr>
                   <tr>
-                    <th scope="row">Race</th>
-                    <td>{generatedRace.statBonuses.STR}</td>
-                    <td>{generatedRace.DEX}</td>
-                    <td>{generatedRace.CON}</td>
-                    <td>{generatedRace.INT}</td>
-                    <td>{generatedRace.WIS}</td>
-                    <td>{generatedRace.CHA}</td>
+                    <th scope="row">Race {resultRace.statBonuses.FreePicks}</th>
+                    <td>{resultRace.statBonusesResolved.STR}</td>
+                    <td>{resultRace.statBonusesResolved.DEX}</td>
+                    <td>{resultRace.statBonusesResolved.CON}</td>
+                    <td>{resultRace.statBonusesResolved.INT}</td>
+                    <td>{resultRace.statBonusesResolved.WIS}</td>
+                    <td>{resultRace.statBonusesResolved.CHA}</td>
                   </tr>
                   <tr>
                     <th scope="row">{resultJob.name}</th>
